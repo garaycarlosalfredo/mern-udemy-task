@@ -8,20 +8,27 @@ import TareaState from './context/tareas/tareaState'
 
 import AlertaState from './context/alertas/alertaState'
 
+import AuthState from './context/autenticacion/authState'
+
 
 function App() {
+
+  console.log(process.env.REACT_APP_BACKEND_URL)
+
   return (
 
     <ProyctoState>
       <TareaState>
         <AlertaState>
-          <Router>
-            <Switch>
-                <Route exact path="/" component={Login} />
-                <Route exact path="/nueva-cuenta" component={NuevaCuenta} />
-                <Route exact path="/proyectos" component={proyectos} />
-            </Switch>
-          </Router>
+          <AuthState>
+            <Router>
+              <Switch>
+                  <Route exact path="/" component={Login} />
+                  <Route exact path="/nueva-cuenta" component={NuevaCuenta} />
+                  <Route exact path="/proyectos" component={proyectos} />
+              </Switch>
+            </Router>
+          </AuthState>
         </AlertaState>
       </TareaState>
     </ProyctoState>

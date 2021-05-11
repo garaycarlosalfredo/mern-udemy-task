@@ -8,7 +8,7 @@ const authController = require('../controllers/authController')
 //Crear usuario
 // api/auth
 router.post('/',
-[
+[   
     check('email','Agregar un email válido').isEmail(),
     check('password', 'El pasword debe ser mínimo de 6 caracteres').isLength({min: 6 })
 ],

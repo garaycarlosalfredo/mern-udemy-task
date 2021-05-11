@@ -14,7 +14,7 @@ const AlertaState = props =>{
 
     //Funciones
 
-    const mostrartAlerta = (msg, categoria)=>{
+    const mostrarAlerta = (msg, categoria)=>{
         dispatch({
             type: MOSTRAR_ALERTA,
             payload: {
@@ -23,6 +23,7 @@ const AlertaState = props =>{
             }
         })
 
+        //Después de 5 segundos limpia la alerta
         setTimeout(() => {
             dispatch({
                 type: OCULTAR_ALERTA
@@ -37,7 +38,7 @@ const AlertaState = props =>{
         <alertaContext.Provider
             value = {{
                 alerta: state.alerta,
-                mostrartAlerta
+                mostrarAlerta
             }}
         >
             {props.children}
